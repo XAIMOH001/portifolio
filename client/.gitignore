@@ -27,7 +27,6 @@ packages/*/node_modules
 packages/*/dist
 packages/*/dist-ssr
 package-lock.json
-package.json
 yarn.lock
 node_modules/
 .env

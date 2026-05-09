@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon Chau Mburu — CV</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0f1117;
+        --paper: #f5f0e8;
+        --accent: #1a7a5e;
+        --accent-light: #e8f5f0;
+        --muted: #6b6b6b;
+        --rule: #d4cfc5;
+        --sidebar-bg: #0f1117;
+        --sidebar-text: #f5f0e8;
+        --sidebar-muted: #9a9a9a;
+        --sidebar-accent: #2eb88a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #e8e3db;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+
+      .page {
+        width: 900px;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 270px 1fr;
+        background: var(--paper);
+        box-shadow:
+          0 20px 80px rgba(0, 0, 0, 0.25),
+          0 4px 16px rgba(0, 0, 0, 0.1);
+        animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── SIDEBAR ── */
+      .sidebar {
+        background: var(--sidebar-bg);
+        color: var(--sidebar-text);
+        padding: 48px 28px 48px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+        animation: rise 0.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      /* Name block styles */
+      .name-block .firstname {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+        color: var(--sidebar-text);
+      }
+      .name-block .lastname {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        font-weight: 400;
+        color: var(--sidebar-accent);
+        line-height: 1.1;
+      }
+      .name-block .title-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        font-weight: 300;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--sidebar-muted);
+        margin-top: 10px;
+        display: block;
+      }
+
+      /* Sidebar section styles */
+      .sidebar-label {
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--sidebar-accent);
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #2a2a2a;
+      }
+
+      .contact-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .contact-list li {
+        font-size: 12px;
+        color: var(--sidebar-muted);
+        line-height: 1.4;
+        word-break: break-all;
+      }
+      .contact-list li span {
+        display: block;
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 1px;
+        color: #4a4a4a;
+        text-transform: uppercase;
+        margin-bottom: 1px;
+      }
+
+      .skill-group {
+        margin-bottom: 14px;
+      }
+      .skill-group-label {
+        font-size: 10px;
+        font-family: "DM Mono", monospace;
+        color: #4a4a4a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .tag {
+        font-size: 10.5px;
+        font-family: "DM Mono", monospace;
+        background: #1e1e1e;
+        color: var(--sidebar-muted);
+        padding: 3px 8px;
+        border-radius: 2px;
+        border: 1px solid #2a2a2a;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .tag:hover {
+        color: var(--sidebar-accent);
+        border-color: var(--sidebar-accent);
+      }
+      .tag.learning {
+        border-color: #1a4a3a;
+        color: var(--sidebar-accent);
+        background: #0d1f1a;
+      }
+
+      .soft-skills-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .soft-skills-list li {
+        font-size: 11.5px;
+        color: var(--sidebar-muted);
+        padding-left: 12px;
+        position: relative;
+      }
+      .soft-skills-list li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--sidebar-accent);
+        font-size: 10px;
+      }
+
+      /* ── MAIN ── */
+      .main {
+        padding: 48px 40px 48px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        animation: rise 0.7s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      /* Section styles */
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .section-title {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+      .section-rule {
+        flex: 1;
+        height: 1px;
+        background: var(--rule);
+      }
+
+      .summary-text {
+        font-size: 13.5px;
+        line-height: 1.75;
+        color: #3a3a3a;
+        font-weight: 300;
+        border-left: 2px solid var(--accent);
+        padding-left: 16px;
+      }
+
+      /* Education */
+      .edu-block {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 4px 16px;
+        align-items: start;
+        margin-bottom: 12px;
+      }
+      .edu-degree {
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--ink);
+      }
+      .edu-school {
+        font-size: 12.5px;
+        color: var(--muted);
+        font-style: italic;
+      }
+      .edu-location {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--muted);
+        text-align: right;
+      }
+      .edu-grad {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--accent);
+        text-align: right;
+      }
+      .coursework-label {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+      .coursework-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .course-pill {
+        font-size: 10.5px;
+        font-family: "DM Mono", monospace;
+        background: var(--accent-light);
+        color: var(--accent);
+        padding: 3px 9px;
+        border-radius: 20px;
+      }
+
+      /* Experience / Projects */
+      .entry {
+        margin-bottom: 22px;
+      }
+      .entry:last-child {
+        margin-bottom: 0;
+      }
+
+      .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 2px;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .entry-title {
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--ink);
+      }
+      .entry-badge {
+        font-family: "DM Mono", monospace;
+        font-size: 9.5px;
+        background: #f0ebe0;
+        color: var(--muted);
+        padding: 2px 8px;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+      .entry-badge.active {
+        background: var(--accent-light);
+        color: var(--accent);
+      }
+      .entry-sub {
+        font-size: 11.5px;
+        color: var(--muted);
+        font-style: italic;
+        margin-bottom: 8px;
+      }
+      .entry-stack {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--muted);
+        margin-bottom: 8px;
+        letter-spacing: 0.3px;
+      }
+      .bullet-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .bullet-list li {
+        font-size: 12.5px;
+        line-height: 1.6;
+        color: #3a3a3a;
+        padding-left: 14px;
+        position: relative;
+        font-weight: 300;
+      }
+      .bullet-list li::before {
+        content: "·";
+        position: absolute;
+        left: 2px;
+        color: var(--accent);
+        font-size: 16px;
+        line-height: 1.3;
+      }
+
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+        .page {
+          box-shadow: none;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .page {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          padding: 32px 24px;
+        }
+        .main {
+          padding: 32px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="name-block">
+          <div class="firstname">Simon Chau</div>
+          <div class="lastname">Mburu</div>
+          <span class="title-tag">Software Engineering Student</span>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-label">Contact</div>
+          <ul class="contact-list">
+            <li><span>Email</span>xaimohchau@gmail.com</li>
+            <li><span>Phone</span>(+254) 74-636-8359</li>
+            <li><span>LinkedIn</span>Simon Chau</li>
+            <li><span>GitHub</span>XAIMOH001</li>
+            <li><span>Nationality</span>Kenyan Citizen</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-label">Skills</div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Frontend · Learning</div>
+            <div class="skill-tags">
+              <span class="tag learning">React.js</span>
+              <span class="tag learning">Tailwind CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Bootstrap</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Backend & Databases</div>
+            <div class="skill-tags">
+              <span class="tag">Django</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Java</span>
+              <span class="tag">C++</span>
+              <span class="tag">C</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-label">Tools</div>
+            <div class="skill-tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Vite</span>
+              <span class="tag">Vercel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-label">Soft Skills</div>
+          <ul class="soft-skills-list">
+            <li>Teamwork</li>
+            <li>Problem-Solving</li>
+            <li>Attention to Detail</li>
+            <li>Willingness to Learn</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <!-- Summary -->
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Profile</span>
+            <div class="section-rule"></div>
+          </div>
+          <p class="summary-text">
+            Third-year Computer Science student at Maasai Mara University with a growing interest in
+            front-end development. Currently building practical skills in React.js, Tailwind CSS,
+            and JavaScript through hands-on personal projects. Eager to apply classroom knowledge to
+            real-world challenges, collaborate with experienced developers, and continue growing as
+            a software engineering student.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Education</span>
+            <div class="section-rule"></div>
+          </div>
+          <div class="edu-block">
+            <div>
+              <div class="edu-degree">BSc. Computer Science — Software Engineering</div>
+              <div class="edu-school">Maasai Mara University</div>
+            </div>
+            <div>
+              <div class="edu-location">Narok, Kenya</div>
+              <div class="edu-grad">Exp. April 2027</div>
+            </div>
+          </div>
+          <div class="coursework-label">Relevant Coursework</div>
+          <div class="coursework-pills">
+            <span class="course-pill">Data Structures</span>
+            <span class="course-pill">Algorithms</span>
+            <span class="course-pill">Software Engineering</span>
+            <span class="course-pill">Artificial Intelligence</span>
+            <span class="course-pill">OOP (C++/Java)</span>
+            <span class="course-pill">Internet Programming</span>
+            <span class="course-pill">Compiler Design</span>
+            <span class="course-pill">Distributed Systems</span>
+            <span class="course-pill">Computer Vision</span>
+            <span class="course-pill">Advanced Databases</span>
+            <span class="course-pill">Functional Programming</span>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Experience</span>
+            <div class="section-rule"></div>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Google Developer Groups on Campus (GDGC)</span>
+              <span class="entry-badge">Member / Collaborator</span>
+            </div>
+            <div class="entry-sub">Maasai Mara University Chapter</div>
+            <ul class="bullet-list">
+              <li>
+                Participated in collaborative front-end projects aimed at digitising university
+                workflows, gaining practical team experience.
+              </li>
+              <li>
+                Worked with React.js components and contributed to UI layouts, learning best
+                practices from more experienced team members.
+              </li>
+              <li>
+                Used Tailwind CSS to help implement responsive designs and improve understanding of
+                utility-first CSS.
+              </li>
+              <li>
+                Gained exposure to Agile workflows and peer code reviews in a team environment.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Projects</span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">KejaConnect — Property Listing Platform</span>
+              <span class="entry-badge active">In Progress</span>
+            </div>
+            <div class="entry-stack">React.js · Tailwind CSS · JavaScript</div>
+            <ul class="bullet-list">
+              <li>
+                A personal project to explore building a property-listing platform for Kenyan users,
+                practising React component architecture.
+              </li>
+              <li>
+                Learning state management with React Hooks (useState, useEffect) through search
+                filters and a property gallery view.
+              </li>
+              <li>
+                Working on full responsiveness across mobile and desktop as Tailwind CSS skills
+                develop.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Campus Connect Market — Student Marketplace</span>
+              <span class="entry-badge active">In Progress</span>
+            </div>
+            <div class="entry-stack">React.js · Tailwind CSS · Django</div>
+            <ul class="bullet-list">
+              <li>
+                Building a peer-to-peer marketplace for university students to practise both
+                front-end and back-end development.
+              </li>
+              <li>
+                Implementing user authentication and basic role-based access control to learn
+                backend concepts in Django.
+              </li>
+              <li>
+                Developing search and product-listing features to put data management and UI skills
+                into practice.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">JavaScript Practice Projects</span>
+              <span class="entry-badge">JS30 & Personal Exercises</span>
+            </div>
+            <ul class="bullet-list">
+              <li>
+                Working through browser-based projects to strengthen core JavaScript — DOM
+                manipulation and event handling.
+              </li>
+              <li>
+                Using exercises to improve debugging ability and build confidence with vanilla
+                JavaScript.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Academic Projects -->
+        <div class="section">
+          <div class="section-header">
+            <span class="section-title">Academic Projects</span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Hospital Web Application</span>
+              <span class="entry-badge">Internet Programming · Year 1</span>
+            </div>
+            <ul class="bullet-list">
+              <li>
+                Collaborated in a team to design and build a hospital web app using HTML, CSS, and
+                JavaScript.
+              </li>
+              <li>
+                First hands-on experience with Git and GitHub for version control in a group
+                setting.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span class="entry-title">Bus Travel Reservation System</span>
+              <span class="entry-badge">C++ · Year 2</span>
+            </div>
+            <ul class="bullet-list">
+              <li>
+                Built a console-based reservation system in C++ to strengthen foundational
+                programming skills.
+              </li>
+              <li>
+                Practised functions, arrays, and control structures through booking and seat
+                management features.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

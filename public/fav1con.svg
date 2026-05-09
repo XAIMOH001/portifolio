@@ -1,0 +1,31 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- S stroke: white at top fading to emerald at bottom -->
+    <linearGradient id="sGrad" x1="44" y1="16" x2="20" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <!-- Background: subtle inner-corner radial lift -->
+    <radialGradient id="bgGrad" cx="30%" cy="30%" r="70%" gradientUnits="objectBoundingBox">
+      <stop stop-color="#1C1B17"/>
+      <stop offset="1" stop-color="#0D0C09"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Squircle background -->
+  <rect width="64" height="64" rx="14" fill="url(#bgGrad)"/>
+
+  <!-- Hairline border — gives the icon edge definition on light tabs -->
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="13.25"
+        stroke="#2A2925" stroke-width="1.5"/>
+
+  <!-- The S — bold stroke, white-to-emerald gradient, rounded terminals -->
+  <path
+    d="M 44,16 C 44,8 12,8 12,22 C 12,34 52,30 52,44 C 52,58 20,58 20,50"
+    stroke="url(#sGrad)" stroke-width="10" stroke-linecap="round" fill="none"/>
+
+  <!-- Emerald origin dot — anchors the top of the S, doubles as brand mark -->
+  <circle cx="44" cy="16" r="6" fill="#059669"/>
+  <!-- Inner highlight on dot -->
+  <circle cx="42.5" cy="14.5" r="2.5" fill="#6EE7B7" opacity="0.45"/>
+</svg>
